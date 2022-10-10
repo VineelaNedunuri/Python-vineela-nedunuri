@@ -70,3 +70,9 @@ print(circle1)
 circle2 = Circle(2,4,4)
 print(circle1 > circle2)
 
+circle1.translate(5,5)
+print(circle1)
+
+circle1.translate("TRE",5)
+print(circle1)
+
