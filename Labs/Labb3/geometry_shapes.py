@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 class Geometry(): # create main class as Geometry
     def __init__(self, x:(int|float), y:(int|float)): # x, y are co- ordinates 
         # assigns arguments to instance attributes 
@@ -17,6 +18,9 @@ class Geometry(): # create main class as Geometry
 
         if not isinstance(value, (float,int)):
             raise TypeError(f"value must be an int or float, not {type(value).__name__}")
+
+        if type(value) == str:
+            raise ValueError(f" x must be numbers not letter")
         
         self._x = value
 
@@ -32,6 +36,9 @@ class Geometry(): # create main class as Geometry
 
         if not isinstance(value, (float,int)):
             raise TypeError(f"value must be an int or float, not {type(value).__name__}")
+
+        if type(value) == str:
+            raise ValueError(f" y must be numbers not letter")
             
         self._y = value
 
@@ -46,8 +53,6 @@ class Geometry(): # create main class as Geometry
    
     # translate method that makes it possible to move x and y 
     def translate(self, new_x, new_y):
-            self._x +=  new_x
-            self._y +=  new_y
             
             if not isinstance(self._x, (float,int)):
                 raise TypeError(f"value must be an int or float, not {type(self._x).__name__}")
@@ -56,14 +61,14 @@ class Geometry(): # create main class as Geometry
             if type(new_x) or type(new_y) == str:
                 raise ValueError(f" x  and y must be numbers not letter")
 
-             
-            return self._x, self._y          
-        
+            self._x +=  new_x
+            self._y +=  new_y 
+                     
 
        
 
 g1 = Geometry(1,2)
 print(g1)
 
-g1.translate(7,2)
+g1.translate(4,2)
 print(g1)
