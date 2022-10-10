@@ -8,12 +8,10 @@ class Rectangle:
         self.length = length
         self.width = width
     
-    # getter
     @property
     def length(self):
         return self._length
     
-    # setter
     @length.setter
     def length(self, value):
         """Setter for value with error handling"""
@@ -27,12 +25,11 @@ class Rectangle:
         
         self._length = value
 
-    # getter
+
     @property
     def width(self):
         return self._width
     
-    # setter
     @width.setter
     def width(self, value):
         """Setter for value with error handling"""
@@ -56,14 +53,14 @@ class Rectangle:
         """To calculate the perimeter of  Rectangle """
         return 2 *self._length + 2* self._width # To find perimeter of rectangle : 2l+2b
     
-    # overrided dunder string method
-    def __str__(self):
-        return f"Rectangle  with co-ordinates  x and y are {self.x}, {self.y} and length is {self.length} ,width is {self.width}"
-
-    
-    # overrides dunder reper method
     def __repr__(self):
         return f"Rectangle(x = {self.x}, y = {self.y} , length={self.length}, width={self.width})"
 
-   
 
+    def __str__(self):
+        return f"Rectangle  with co-ordinates  x and y are {self.x}, {self.y} and length is {self.length} ,width is {self.width}"
+
+
+rectangle1 = Rectangle(4,4,4,5)
+print(rectangle1.area())
+print(rectangle1.perimeter())
