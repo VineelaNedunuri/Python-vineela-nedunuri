@@ -52,21 +52,23 @@ class Geometry(): # create main class as Geometry
     
    
     # translate method that makes it possible to move x and y 
-   # def translate(self, new_x, new_y):
+    def translate(self, new_x, new_y):
             
-          #  if not isinstance(self._x, (float,int)):
-           #     raise TypeError(f"value must be an int or float, not {type(self._x).__name__}")
+        if not isinstance(self._x, (float,int)):
+            raise TypeError(f"value must be an int or float, not {type(self._x).__name__}")
 
             
-           # if type(new_x) or type(new_y) == str:
-           #     raise ValueError(f" x  and y must be numbers not letter")
+        if type(new_x)== str or type(new_y) == str:
+            raise ValueError(f" x  and y must be numbers not letter")
 
-           # self._x +=  new_x
-            #self._y +=  new_y 
+        self._x +=  new_x
+        self._y +=  new_y 
                      
 
        
 
-g1 = Geometry(1,2)
+g1 = Geometry(4,4)
 print(g1)
 
+g1.translate(4,2)
+print(g1)

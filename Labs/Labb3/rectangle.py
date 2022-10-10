@@ -1,6 +1,6 @@
 from geometry_shapes import Geometry
 
-class Rectangle:
+class Rectangle(Geometry):
     """A Rectangle has length and width with four sides"""
     # override _init__()
     def __init__(self, x, y, length, width) -> None:
@@ -59,8 +59,25 @@ class Rectangle:
 
     def __str__(self):
         return f"Rectangle  with co-ordinates  x and y are {self.x}, {self.y} and length is {self.length} ,width is {self.width}"
+    
+    # overloaded equality (==) operator  
+    def __eq__(self, other) -> bool:
+        return (self.length == other.length) and (self.width == other.width)
 
+    # an operator overload of comparator operators <,>,<=,>= for comparison
+
+    def __lt__(self, other)-> bool: # less than operator
+        return self.perimeter < other.perimeter
+    
+    def __le__(self, other)-> bool: # less than or equal to  operator
+        return self.perimeter <= other.perimeter
+    
+    def __gt__(self, other)-> bool: # greater than operator
+        return self.perimeter > other.perimeter
+        
+    def __ge__(self, other)-> bool: # greater than or equal to operator
+        return self.perimeter >= other.perimeter
 
 rectangle1 = Rectangle(4,4,4,5)
-print(rectangle1.area())
-print(rectangle1.perimeter())
+print(rectangle1.area)
+print(rectangle1.perimeter)
