@@ -49,18 +49,18 @@ class Circle(Geometry):
         
     # an operator overload of comparator operators <,>,<=,>= for comparison
 
-    def __lt__(self, other)-> bool: # less than operator
-        return self.area < other.area
+   # def __lt__(self, other)-> bool: # less than operator
+    #    return self.area < other.area
            
-    def __le__(self, other)-> bool: # less than or equal to  operator
-        return self.area <= other.area
+    #def __le__(self, other)-> bool: # less than or equal to  operator
+      #  return self.area <= other.area
          
-    
-    def __gt__(self, other)-> bool: # greater than operator
-        return self.area > other.area
+    #
+    #def __gt__(self, other)-> bool: # greater than operator
+        #return self.area > other.area
         
-    def __ge__(self, other)-> bool: # greater than or equal to operator
-        return self.area >= other.area
+    #def __ge__(self, other)-> bool: # greater than or equal to operator
+     #   return self.area >= other.area
     
     # a method that checks if the point is inside the ciecle or not
 

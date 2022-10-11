@@ -64,20 +64,6 @@ class Rectangle(Geometry):
     def __eq__(self, other) -> bool:
         return (self.length == other.length) and (self.width == other.width)
 
-    # an operator overload of comparator operators <,>,<=,>= for comparison
-
-    def __lt__(self, other)-> bool: # less than operator
-        return self.area < other.area
-    
-    def __le__(self, other)-> bool: # less than or equal to  operator
-        return self.area <= other.area
-    
-    def __gt__(self, other)-> bool: # greater than operator
-        return self.area > other.area
-        
-    def __ge__(self, other)-> bool: # greater than or equal to operator
-        return self.area >= other.area
-
     # a  method that checks whether point is inside or not in rectangle
     def is_inside_rec(self, x1, y1)-> bool:
         """ Point inside or in rectangle must be in limits"""

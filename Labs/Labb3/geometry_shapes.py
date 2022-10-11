@@ -48,6 +48,26 @@ class Geometry:  # create main class as Geometry
     # overrided dunder reper method
     def __repr__(self):
         return f"Geometry(x = {self.x}, y = {self.y})"
+    
+    
+    # an operator overload of comparator operators <,>,<=,>= for comparison
+
+    def __lt__(self, other)-> bool: # less than operator
+        """ Less than operator to compare geometry shapes"""
+        return self.area < other.area
+    
+    def __le__(self, other)-> bool: # less than or equal to  operator
+        """ Less than or operator to compare geometry shapes"""
+        return self.area <= other.area
+    
+    def __gt__(self, other)-> bool: # greater than operator
+        """ Greater than operator to compare geometry shapes"""
+        return self.area > other.area
+        
+    def __ge__(self, other)-> bool: # greater than or equal to operator
+        """ Greater than orequal operator to compare geometry shapes"""
+        return self.area >= other.area
+
 
     # translate method that makes it possible to move x and y
     def translate(self, new_x, new_y):
