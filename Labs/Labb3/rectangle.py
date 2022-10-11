@@ -1,5 +1,5 @@
 from geometry_shapes import Geometry
-
+import matplotlib.pyplot as plt
 class Rectangle(Geometry):
     """A Rectangle has length and width with four sides"""
     # override _init__()
@@ -78,6 +78,20 @@ class Rectangle(Geometry):
     def __ge__(self, other)-> bool: # greater than or equal to operator
         return self.perimeter >= other.perimeter
 
-rectangle1 = Rectangle(4,4,4,5)
-print(rectangle1.area)
-print(rectangle1.perimeter)
+    # a method that checks if the rectangle instance is a square
+    def square(self):
+        if self.length == self.width:
+           return print("Rectangle is a Square")
+        else:
+            return print("Rectangle is not a Square")
+     
+    # to plot circle
+    def plot_rectangle(self):
+        fig, ax = plt.subplots()
+        rectangle = plt.Rectangle((self.x ,self.y), self.length,self.width, alpha = 1)
+        ax.add_patch(rectangle)
+        ax.set_aspect(1)
+        ax.autoscale()  
+        ax.set(title="Rectangle", xlabel="x", ylabel="y")
+        plt.show()
+
