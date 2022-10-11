@@ -78,6 +78,18 @@ class Rectangle(Geometry):
     def __ge__(self, other)-> bool: # greater than or equal to operator
         return self.perimeter >= other.perimeter
 
+    # a  method that checks whether point is inside or not in rectangle
+    def is_inside_rec(self, x1, y1)-> bool:
+        x_min = self.x - (self.length/2)
+        x_max = self.x + (self.length/2)
+        y_min = self.x - (self.width/2)
+        y_max = self.x + (self.width/2)
+        
+        if (x_min < x1 < x_max ) and (y_min < y1 < y_max):
+            return True
+        else:
+            return False
+
     # a method that checks if the rectangle instance is a square
     def square(self):
         if self.length == self.width:
