@@ -1,7 +1,10 @@
+from __future__ import annotations
 from geometry_shapes import Geometry
 import math
 import matplotlib.pyplot as plt
-class Circle(Geometry):
+
+# create sub class of Geometry
+class Circle(Geometry): 
     """A Circle has radius"""
     def __init__(self, x, y, radius) -> None:
         super().__init__(x,y)
@@ -9,8 +12,9 @@ class Circle(Geometry):
     
     # getter
     @property    
-    def radius(self): 
+    def radius(self)->int|float: 
         return self._radius
+
     # setter 
     @radius.setter
     def radius(self, value):
@@ -24,15 +28,16 @@ class Circle(Geometry):
         
         self._radius = value
     
-
+    # to find out area of circle: pi*r**2
     @property
-    def area(self): # to find out area of circle: pi*r**2
+    def area(self)->int|float: 
         """To calculate the area of Circle """
         return math.pi*(self._radius **2)
-    
+
+     # to find out circumference of circle: 2*pi*r
     @property
-    def circumference(self): # to find out circumference of circle: 2*pi*r
-        """To calculate the circumference of  Rectangle """
+    def circumference(self)->int|float:
+        """To calculate the circumference of Circle """
         return 2* math.pi *self._radius
    
      
@@ -43,41 +48,30 @@ class Circle(Geometry):
     # overrided dunder string method
     def __str__(self):
         return f"circle with co-ordinates  x and y are {self.x}, {self.y} and the radius is {self.radius}"
+
     # overloaded equality (==) operator  
     def __eq__(self, other) -> bool:
+        """ Checking equality condition for Circles"""
         return self.radius == other.radius
         
-    # an operator overload of comparator operators <,>,<=,>= for comparison
-
-   # def __lt__(self, other)-> bool: # less than operator
-    #    return self.area < other.area
-           
-    #def __le__(self, other)-> bool: # less than or equal to  operator
-      #  return self.area <= other.area
-         
-    #
-    #def __gt__(self, other)-> bool: # greater than operator
-        #return self.area > other.area
-        
-    #def __ge__(self, other)-> bool: # greater than or equal to operator
-     #   return self.area >= other.area
     
     # a method that checks if the point is inside the ciecle or not
 
     def is_inside(self, x1, y1)-> bool: 
-        """Cicle point is inside or in boundary """ 
+        """Cicle point is inside or on boundary """ 
         return math.sqrt((self.x - x1)**2 + (self.y - y1)**2) <= self.radius**2
     
              
     # a method that checks if the circle instance is a unit circle
     def unit_circle(self):
-        """ Unit circle with  radius is one"""
+        """ Unit circle is the circle of radius is one at the origin"""
         if self.radius == 1 and self.x == 0 and self.y == 0:
             return print("It is a Unit Circle")
 
 
     # to plot circle
     def plot_circle(self):
+        """ To draw Rectangle in co-ordinate axis"""
         fig, ax = plt.subplots()
         circle1 = plt.Circle((self.x ,self.y), self.radius, color = 'r', alpha = 1)
         ax.add_patch(circle1)

@@ -65,12 +65,12 @@ class Geometry:  # create main class as Geometry
         return self.area > other.area
         
     def __ge__(self, other)-> bool: # greater than or equal to operator
-        """ Greater than orequal operator to compare geometry shapes"""
+        """ Greater than or equal operator to compare geometry shapes"""
         return self.area >= other.area
 
 
     # translate method that makes it possible to move x and y
-    def translate(self, new_x, new_y):
+    def translate(self, new_x, new_y)-> int| float:
         """ Translate is to move the position of geometry shape"""
 
         if not isinstance(new_x, (float, int)) or not isinstance(new_y, (float, int)):
