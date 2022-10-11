@@ -20,8 +20,8 @@ class Rectangle(Geometry):
         if not isinstance(value, (float,int)):
             raise TypeError(f"value must be an int or float, not {type(value).__name__}")
 
-        if not (0<= value ):
-            raise ValueError(f"You can only enter non- neagtive values")
+        if value <= 0 :
+            raise ValueError(f"You can only enter positive values")
         
         self._length = value
 
@@ -38,7 +38,7 @@ class Rectangle(Geometry):
         if not isinstance(value, (float,int)):
             raise TypeError(f"value must be an int or float, not {type(value).__name__}")
 
-        if not (0<= value ):
+        if value <= 0:
             raise ValueError(f"You can only enter non- neagtive values")
         
         self._width = value
@@ -46,12 +46,12 @@ class Rectangle(Geometry):
     @property      
     def area(self) -> float: 
         """To calculate the area of  Rectangle """
-        return self._length*self._width  # to find area of rectangle : l*b
+        return self.length*self.width  # to find area of rectangle : l*b
 
     @property 
     def perimeter(self) -> float:
         """To calculate the perimeter of  Rectangle """
-        return 2 *self._length + 2* self._width # To find perimeter of rectangle : 2l+2b
+        return 2 *self.length + 2* self.width # To find perimeter of rectangle : 2l+2b
     
     def __repr__(self):
         return f"Rectangle(x = {self.x}, y = {self.y} , length={self.length}, width={self.width})"
@@ -67,31 +67,30 @@ class Rectangle(Geometry):
     # an operator overload of comparator operators <,>,<=,>= for comparison
 
     def __lt__(self, other)-> bool: # less than operator
-        return self.perimeter < other.perimeter
+        return self.area < other.area
     
     def __le__(self, other)-> bool: # less than or equal to  operator
-        return self.perimeter <= other.perimeter
+        return self.area <= other.area
     
     def __gt__(self, other)-> bool: # greater than operator
-        return self.perimeter > other.perimeter
+        return self.area > other.area
         
     def __ge__(self, other)-> bool: # greater than or equal to operator
-        return self.perimeter >= other.perimeter
+        return self.area >= other.area
 
     # a  method that checks whether point is inside or not in rectangle
     def is_inside_rec(self, x1, y1)-> bool:
+        """ Point inside or in rectangle must be in limits"""
         x_min = self.x - (self.length/2)
         x_max = self.x + (self.length/2)
         y_min = self.x - (self.width/2)
         y_max = self.x + (self.width/2)
         
-        if (x_min < x1 < x_max ) and (y_min < y1 < y_max):
-            return True
-        else:
-            return False
-
+        return (x_min <= x1 <= x_max ) and (y_min <= y1 <= y_max)
+            
     # a method that checks if the rectangle instance is a square
     def square(self):
+        """ Square should have smae length and same width"""
         if self.length == self.width:
            return print("Rectangle is a Square")
         else:
@@ -100,10 +99,10 @@ class Rectangle(Geometry):
     # to plot circle
     def plot_rectangle(self):
         fig, ax = plt.subplots()
-        rectangle = plt.Rectangle((self.x ,self.y), self.length,self.width, alpha = 1)
+        rectangle = plt.Rectangle((self.x ,self.y), self.length, self.width, alpha = 1)
         ax.add_patch(rectangle)
         ax.set_aspect(1)
         ax.autoscale()  
-        ax.set(title="Rectangle", xlabel="x", ylabel="y")
+        ax.set(title="Rectangle", xlabel="x- axis", ylabel="y-axis")
         plt.show()
 
