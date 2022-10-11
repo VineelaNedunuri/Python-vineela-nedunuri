@@ -64,12 +64,14 @@ class Circle(Geometry):
     
     # a method that checks if the point is inside the ciecle or not
 
-    def is_inside(self, x1, y1)-> bool:  
+    def is_inside(self, x1, y1)-> bool: 
+        """Cicle point is inside or in boundary """ 
         return math.sqrt((self.x - x1)**2 + (self.y - y1)**2) <= self.radius**2
     
              
     # a method that checks if the circle instance is a unit circle
     def unit_circle(self):
+        """ Unit circle with  radius is one"""
         if self.radius == 1 and self.x == 0 and self.y == 0:
             return print("It is a Unit Circle")
 
@@ -81,6 +83,6 @@ class Circle(Geometry):
         ax.add_patch(circle1)
         ax.set_aspect(1)
         ax.autoscale()  
-        ax.set(title="Circle", xlabel="x", ylabel="y")
+        ax.set(title="Circle", xlabel="x-axis", ylabel="y-axis")
         plt.show()
 
