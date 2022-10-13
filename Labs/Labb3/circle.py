@@ -50,8 +50,10 @@ class Circle(Geometry):
         return f"circle with co-ordinates  x and y are {self.x}, {self.y} and the radius is {self.radius}"
 
     # overloaded equality (==) operator  
-    def __eq__(self, other) -> bool:
+    def __eq__(self, other:Circle) -> bool:
         """ Checking equality condition for Circles"""
+        if type(self.radius) != type(other.radius):
+            raise TypeError(f"Both the radius must be same like int or float")
         return self.radius == other.radius
         
     
@@ -59,6 +61,9 @@ class Circle(Geometry):
 
     def is_inside(self, x1, y1)-> bool: 
         """Cicle point is inside or on boundary """ 
+        if not (isinstance(x1, (float,int)) or not isinstance(y1, (float,int))) :
+            raise TypeError(f"Radius must be an int or float, not {type(x1).__name__}, {type(y1).__name__}")
+ 
         return math.sqrt((self.x - x1)**2 + (self.y - y1)**2) <= self.radius**2
     
              

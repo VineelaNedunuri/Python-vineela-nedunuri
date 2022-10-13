@@ -67,13 +67,18 @@ class Rectangle(Geometry):  # sub class
         return f"Rectangle  with co-ordinates  x and y are {self.x}, {self.y} and length is {self.length} ,width is {self.width}"
     
     # overloaded equality (==) operator  
-    def __eq__(self, other) -> bool:
+    def __eq__(self, other: Rectangle) -> bool:
         """ Checking equality condition for Rectangles"""
+        if type(self.length) != type(other.length) and type(self.width) != type(other.width):
+            raise TypeError(f"Both the length and width must be same as int or float")
         return (self.length == other.length) and (self.width == other.width)
 
     # a  method that checks whether point is inside or not in rectangle
     def is_inside_rec(self, x1, y1)-> bool:
         """ Checking  point inside or on rectangle """
+        if not (isinstance(x1, (float,int)) or not isinstance(y1, (float,int))) :
+            raise TypeError(f"Radius must be an int or float, not {type(x1).__name__}, {type(y1).__name__}")
+ 
         x_min = self.x - (self.length/2)
         x_max = self.x + (self.length/2)
         y_min = self.x - (self.width/2)
@@ -84,6 +89,7 @@ class Rectangle(Geometry):  # sub class
     # a method that checks if the rectangle instance is a square
     def square(self)-> None:
         """ Square should have smae length and same width"""
+    
         if self.length == self.width:
            return print("Rectangle is a Square")
         else:
