@@ -54,7 +54,7 @@ class Geometry:  # create main class as Geometry
 
     def __lt__(self, other)-> bool: # less than operator
         """ Less than operator to compare geometry shapes"""
-        if type(self.area) != type(other.area):
+        if type(self.area) < type(other.area):
             raise ValueError(f"Both areas must be same as int or float")
     
         return self.area < other.area
@@ -73,7 +73,7 @@ class Geometry:  # create main class as Geometry
 
 
     # translate method that makes it possible to move x and y
-    def translate(self, new_x, new_y)-> int| float:
+    def translate(self, new_x, new_y):
         """ Translate is to move the position of geometry shape"""
 
         if not isinstance(new_x, (float, int)) or not isinstance(new_y, (float, int)):
