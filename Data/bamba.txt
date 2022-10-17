@@ -4,9 +4,12 @@ Pannkakor
 Ärtsoppa
 Kebab
 Vegetarisk lasagne 
+  
+   
+
   V42
-m�n:Chili sin carne
-Tis:Pannkakor
-ons:Ärtsoppa
-Tor:Kebab
-Fre:Vegetarisk lasagne 
+m�n :Chili sin carne
+Tis :Pannkakor
+ons :Ärtsoppa
+Tor :Kebab
+Fre :Vegetarisk lasagne 
